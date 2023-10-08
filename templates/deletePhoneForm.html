@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KP Delete Phone Form</title>
+    <style>
+        body {
+            background-color: #44c767;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        form {
+            text-align: left;
+            padding: 20px;
+        }
+        label {
+            color: #266437;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        input[type="text"] {
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #266437;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #266437;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        input[type="submit"]:hover {
+            background-color: #33a655;
+            transform: scale(1.05);
+        }
+        .home-button {
+            position: absolute;
+            top: 10px; /* Adjust the top position as needed */
+            left: 10px; /* Adjust the left position as needed */
+        }
+        .home-button a {
+            background-color: #266437;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .home-button a:hover {
+            background-color: #33a655;
+        }
+        .back-icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+    <script>
+        var password = "adminkwiki";
+        (function passcodeprotect() {
+            var passcode = prompt("Please enter the password to view this page");
+            if (passcode != password) {
+                alert("Incorrect password, please try again");
+                passcodeprotect();
+            }
+        }());
+        alert('Successfully logged in')
+    </script>
+    <body>
+        <div class="home-button">
+            <a href="/home">
+                <span class="back-icon">&#8592;</span> Back to Home
+            </a>
+        </div>
+        <div class='container'>
+            <h1>KP Delete Phone</h1>
+        <form method='POST'>
+            <label>Enter IMEI</label>
+            <input type='text' name='IMEI' placeholder='Enter IMEI' required><br>
+            <input type='submit' name='submit' value='Submit'>
+        </form>
+        {% if error %}
+            <p style='color: red;'>{{ errorMessage }}</p>
+        {% endif %}
+        </div>
+    </body>
+</html>

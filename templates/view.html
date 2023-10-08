@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KP Tax Summaries</title>
+    <style>
+        body {
+            background-color: #44c767;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .table-container {
+            width: 100vh;
+            max-height: 80vh; /* Set a maximum height for the table container */
+            overflow: auto; /* Add scrollbars when the table exceeds the container height */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%; /* Adjust the width as needed */
+            max-width: 100%; /* Ensure the table doesn't exceed the container width */
+            background-color: #fff;
+            border: 1px solid #266437;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        th, td {
+            border: 1px solid #266437;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #266437;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .home-button {
+            position: absolute;
+            top: 10px; /* Adjust the top position as needed */
+            left: 10px; /* Adjust the left position as needed */
+        }
+        .home-button a {
+            background-color: #266437;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .home-button a:hover {
+            background-color: #33a655;
+        }
+        .back-icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-button">
+        <a href="/home">
+            <span class="back-icon">&#8592;</span> Back to Home
+        </a>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Model Name</th>
+                <th>Days Rented</th>
+                <th>Tax year</th>
+                <th>Total Cost</th>
+            </tr>
+            {% for CustomerSummary in data%}
+                <tr>
+                    <td>{{CustomerSummary[0]}}</td>
+                    <td>{{CustomerSummary[1]}}</td>
+                    <td>{{CustomerSummary[2]}}</td>
+                    <td>{{CustomerSummary[3]}}</td>
+                    <td>{{CustomerSummary[4]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
